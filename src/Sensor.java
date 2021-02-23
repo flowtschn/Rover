@@ -1,11 +1,10 @@
+
 public interface Sensor<T> {
-    //Konstanten
-    public boolean b = true;
+    void read(boolean status);
 
-    //Methodenkopf
-    public void read();
+    void enabled(boolean status);
 
-    public int multiplikation(int wert);
+    void disabled(boolean status);
 }
 
 
