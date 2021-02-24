@@ -1,9 +1,11 @@
  class Main {
 public static void main (String[] args){
 
-    Temperature T = new Temperature();
+    SensorFactory T = new SensorFactory();
     T.read(false);
-
+    
+    SensorFactory.addSensor(SensorFactory.Sensortype.TEMP);
+    SensorFactory.addSensor(SensorFactory.Sensortype.PRE);
     }
 }
 
