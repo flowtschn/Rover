@@ -1,9 +1,11 @@
 
 public abstract class AbstractSensor implements Sensor {
-    boolean status;
+    static boolean status;
+
+
 
     @Override
-    public void read(boolean status) {
+    public  void read(boolean status) {
         if (this.status == false) {
 
             System.out.println("Sensor ist nicht angeschalten!");

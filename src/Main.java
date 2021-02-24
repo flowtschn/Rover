@@ -1,11 +1,14 @@
  class Main {
 public static void main (String[] args){
+    Rover r = new Rover.RoverBuilder();
 
     SensorFactory T = new SensorFactory();
-    T.read(false);
-    
-    SensorFactory.addSensor(SensorFactory.Sensortype.TEMP);
-    SensorFactory.addSensor(SensorFactory.Sensortype.PRE);
+    T.read(true);
+    // Sensoren erzeugen
+    SensorFactory.creatSensor(SensorFactory.Sensortype.TEMP);
+    SensorFactory.creatSensor(SensorFactory.Sensortype.PRE);
+
+
     }
 }
 
