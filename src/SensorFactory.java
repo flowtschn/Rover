@@ -6,7 +6,7 @@ public class SensorFactory extends AbstractSensor {
         PRE,
     }
 
-    public static void  creatSensor(Sensortype TypeS) {
+    public static void  createSensor(Sensortype TypeS) {
         switch (TypeS) {
 
 

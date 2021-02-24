@@ -4,9 +4,10 @@ public static void main (String[] args){
 
     SensorFactory T = new SensorFactory();
     T.read(true);
+
     // Sensoren erzeugen
-    SensorFactory.creatSensor(SensorFactory.Sensortype.TEMP);
-    SensorFactory.creatSensor(SensorFactory.Sensortype.PRE);
+    SensorFactory.createSensor(SensorFactory.Sensortype.TEMP);
+    SensorFactory.createSensor(SensorFactory.Sensortype.PRE);
 
 
     }
