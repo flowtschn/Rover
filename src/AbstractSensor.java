@@ -16,6 +16,7 @@ public abstract class AbstractSensor implements Sensor {
     @Override
     public void enabled(boolean status) {
         this.status = true;
+        System.out.println("Sensor ist angeschalten!");
 
     }
 
