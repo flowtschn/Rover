@@ -14,8 +14,10 @@ public class Rover extends AbstractSensor {
     public static class RoverBuilder extends Rover  {
 
 //        private  SensorFactory sensor;
-        private int Index;
+        private int IndexS = 0;
+        private int IndexE = 0;
         private HashMap <Integer , Sensor<?>>sensormap = new HashMap<>();
+        private HashMap <Integer , Moxie> experimentmap = new HashMap<>();
         private String name;
 
 
@@ -24,8 +26,8 @@ public class Rover extends AbstractSensor {
 
         public RoverBuilder addSensor(SensorFactory.Sensortype type) {
 
-            this.sensormap.put(Index, SensorFactory.createSensor(type));
-            Index = Index+1;
+            this.sensormap.put(IndexS, SensorFactory.createSensor(type));
+            IndexS = IndexS+1;
             System.out.println(sensormap);
             return  this;
         }
@@ -37,9 +39,11 @@ public class Rover extends AbstractSensor {
         }
 
         public RoverBuilder addExperimentalSetup(ExpFactory.Exptype temp) {
+            this.experimentmap.put(IndexE, ExpFactory.createExp(temp));
+            System.out.println(experimentmap);
+            IndexE = IndexE+1;
 
-
-       return null; }
+       return this ; }
 
         public Rover build() {
             Rover ourrover = new Rover();

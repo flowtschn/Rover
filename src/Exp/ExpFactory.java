@@ -6,19 +6,13 @@ public class ExpFactory extends Moxie {
             MOXIE,
             ROXY
         }
-    public Moxie createExp(Exptype TypeE) {
+    public static Moxie createExp(Exptype TypeE) {
         switch (TypeE) {
             case MOXIE:
                 return new Moxie();
 
             case ROXY:
                 return new Roxy();
-
-
-
-
-
-
 
         }
 

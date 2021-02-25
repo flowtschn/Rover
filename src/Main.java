@@ -1,11 +1,13 @@
 import Exp.ExpFactory;
+import Sensors.Sensor;
 import Sensors.SensorFactory;
 import Sensors.Temperature;
+import Sensors.Wind;
 
 class Main {
 public static void main (String[] args){
     Rover r = new Rover.RoverBuilder()
-    .addname("juhu")
+            .addname("juhu")
             .addSensor(SensorFactory.Sensortype.PRE)
             .addSensor(SensorFactory.Sensortype.TEMP)
             .addSensor(SensorFactory.Sensortype.HUM)
@@ -14,7 +16,8 @@ public static void main (String[] args){
             .addExperimentalSetup(ExpFactory.Exptype.MOXIE)
             .addExperimentalSetup(ExpFactory.Exptype.ROXY)
             .build();
-    System.out.println(r);
+
+  System.out.println(r);
 
 
 //    .createSensor(Rover.RoverBuilder.Sensortype.TEMP)
