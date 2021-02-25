@@ -1,4 +1,4 @@
 package Sensors;
 
-public class Hum {
+public class Hum extends AbstractSensor{
 }

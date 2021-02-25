@@ -6,8 +6,12 @@ public static void main (String[] args){
     Rover r = new Rover.RoverBuilder()
     .addname("juhu")
             .addSensor(SensorFactory.Sensortype.PRE)
-            .addSensor(SensorFactory.Sensortype.TEMP);
-
+            .addSensor(SensorFactory.Sensortype.TEMP)
+            .addSensor(SensorFactory.Sensortype.HUM)
+            .addSensor(SensorFactory.Sensortype.WIND)
+            .addSensor(SensorFactory.Sensortype.RAD)
+            .build();
+    System.out.println(r);
 
 
 //    .createSensor(Rover.RoverBuilder.Sensortype.TEMP)
