@@ -32,4 +32,22 @@ public class Moxie implements ExperimentalSetup {
 
         this.rate = success/10;
         return this.rate;}
+
+
+
+
+    public class Roxy extends Moxie {
+
+
+        @Override
+        public double runExperiment() {
+            return 0;
+        }
+
+        @Override
+        public double evaluateResult() {
+            return 0;
+        }
+    }
+
 }

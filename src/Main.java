@@ -12,6 +12,7 @@ public static void main (String[] args){
             .addSensor(SensorFactory.Sensortype.WIND)
             .addSensor(SensorFactory.Sensortype.RAD)
             .addExperimentalSetup(ExpFactory.Exptype.MOXIE)
+            .addExperimentalSetup(ExpFactory.Exptype.ROXY)
             .build();
     System.out.println(r);
 

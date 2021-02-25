@@ -12,7 +12,7 @@ public class ExpFactory extends Moxie {
                 return new Moxie();
 
             case ROXY:
-                return null;
+                return new Roxy();
 
 
 

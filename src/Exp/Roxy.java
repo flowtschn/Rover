@@ -1,6 +1,6 @@
 package Exp;
 
-public class Roxy implements ExperimentalSetup {
+public class Roxy extends Moxie {
 
 
     @Override
