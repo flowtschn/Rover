@@ -2,13 +2,13 @@ package Sensors;
 
 import Sensors.*;
 
-public class SensorFactory  {
+public class SensorFactory extends AbstractSensor  {
     public enum Sensortype {
         TEMP,
         PRE,
     }
 
-    public  Sensor<?> createSensor(Sensortype TypeS) {
+    public static Sensor<?> createSensor(Sensortype TypeS) {
         switch (TypeS) {
             case TEMP:
                 System.out.println("Temp Sensors.Sensor created");
@@ -20,6 +20,6 @@ public class SensorFactory  {
                 System.out.println("--");
         }
 
-        return null;
+        return  null  ;
     }
 }

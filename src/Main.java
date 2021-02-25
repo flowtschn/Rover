@@ -1,14 +1,20 @@
+import Sensors.SensorFactory;
 import Sensors.Temperature;
 
 class Main {
 public static void main (String[] args){
     Rover r = new Rover.RoverBuilder()
+    .addname("juhu")
+            .addSensor(SensorFactory.Sensortype.PRE)
+            .addSensor(SensorFactory.Sensortype.TEMP);
+
+
 
 //    .createSensor(Rover.RoverBuilder.Sensortype.TEMP)
 //    .createSensor(Rover.RoverBuilder.Sensortype.DUST)
 //    .createSensor(Rover.RoverBuilder.Sensortype.WIND);
 
-    r.read();
+   // r.read();
 
 
 

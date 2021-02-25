@@ -3,24 +3,46 @@ import Sensors.*;
 import java.util.HashMap;
 
 public class Rover extends AbstractSensor {
-private  SensorFactory sensor;
-private HashMap <SensorFactory , SensorFactory.Sensortype > sensormap = new HashMap<>();
 
-    public class RoverBuilder extends Rover {
 
-    }
-        public RoverBuilder addSensor(SensorFactory sensor){
-            this.sensormap.put(sensor, SensorFactory.Sensortype );
+
+    public static class RoverBuilder extends Rover  {
+
+        private  SensorFactory sensor;
+        private int Index;
+        private HashMap <Integer , Sensor<?>>sensormap = new HashMap<>();
+        private String name;
+
+
+
+
+        public RoverBuilder addSensor(SensorFactory.Sensortype type) {
+
+            this.sensormap.put(Index, SensorFactory.createSensor(type));
+            Index = Index+1;
+            System.out.println(sensormap);
+            return  this;
 
 
         }
+            public RoverBuilder addname(String name){
+                this.name=name;
+                return this;
 
-
-
+        }
+    }
 
 
 
     }
+
+
+
+
+
+
+
+
 
 
 
