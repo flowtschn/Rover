@@ -1,4 +1,5 @@
 package Sensors;
 
-public class Temperature {
+
+public class Temperature extends AbstractSensor {
 }

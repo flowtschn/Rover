@@ -1,4 +1,4 @@
 package Sensors;
 
-public class Pressure {
+public class Pressure extends AbstractSensor {
 }
