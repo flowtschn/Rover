@@ -1,8 +1,5 @@
 import Exp.ExpFactory;
-import Sensors.Sensor;
-import Sensors.SensorFactory;
-import Sensors.Temperature;
-import Sensors.Wind;
+import Sensors.*;
 
 class Main {
 public static void main (String[] args){
@@ -17,7 +14,11 @@ public static void main (String[] args){
             .addExperimentalSetup(ExpFactory.Exptype.ROXY)
             .build();
 
-  System.out.println(r);
+    //r.disabled();
+    r.enabled();
+    r.read();
+    r.readSensorData(SensorFactory.Sensortype.TEMP);
+  //System.out.println(r);
 
 
 //    .createSensor(Rover.RoverBuilder.Sensortype.TEMP)

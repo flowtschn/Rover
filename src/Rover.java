@@ -8,7 +8,8 @@ import java.util.HashMap;
 public class Rover extends AbstractSensor {
 
 
-    private HashMap<Integer, Sensor<?>> sensors;
+    private HashMap<Integer, Sensor<?>> sensormap;
+    private HashMap <Integer , Moxie> experimentmap ;
     private String name;
 
     public static class RoverBuilder extends Rover  {
@@ -48,7 +49,8 @@ public class Rover extends AbstractSensor {
         public Rover build() {
             Rover ourrover = new Rover();
             ourrover.name = this.name;
-            ourrover.sensors = this.sensormap;
+            ourrover.sensormap = this.sensormap;
+            ourrover.experimentmap = this.experimentmap;
             System.out.println(ourrover.name); //check if right name is attached
             return ourrover;
 

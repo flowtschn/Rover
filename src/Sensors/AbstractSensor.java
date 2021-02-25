@@ -33,4 +33,10 @@ public abstract class AbstractSensor <T> implements Sensor<T> {
 
     }
 
+    public  int readSensorData(SensorFactory.Sensortype type) {
+        int i=0;
+
+        System.out.println("Sensor DATA = " );
+      return i;
+    }
 }
