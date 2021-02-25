@@ -1,4 +1,4 @@
-import java.net.Proxy;
+package Exp;
 
 public class ExpFactory extends Moxie {
 
@@ -6,15 +6,24 @@ public class ExpFactory extends Moxie {
             MOXIE,
             ROXY
         }
-    public createExp(ExpFactory.Exptype TypeE) {
+    public Moxie createExp(Exptype TypeE) {
         switch (TypeE) {
+            case MOXIE:
+                return new Moxie();
+
             case ROXY:
+                return null;
+
+
+
+
 
 
 
         }
 
 
+        return null;
     }
 
 

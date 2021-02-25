@@ -1,8 +1,10 @@
-import Sensors.Sensor;
+package Exp;
+
+import Exp.ExperimentalSetup;
 
 import java.util.Random;
 
-abstract class Moxie implements ExperimentalSetup{
+public class Moxie implements ExperimentalSetup {
 
     double counter = 10;
     int upperbound = 10;

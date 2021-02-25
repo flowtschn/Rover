@@ -1,3 +1,6 @@
+import Exp.ExpFactory;
+import Exp.ExperimentalSetup;
+import Exp.Moxie;
 import Sensors.*;
 
 import java.util.HashMap;
@@ -33,7 +36,7 @@ public class Rover extends AbstractSensor {
                 return this;
         }
 
-        public RoverBuilder addExperimentalSetup(Moxie temp) {
+        public RoverBuilder addExperimentalSetup(ExpFactory.Exptype temp) {
 
 
        return null; }

@@ -1,4 +1,4 @@
 package Sensors;
 
-public class Dust {
+public class Dust extends AbstractSensor{
 }

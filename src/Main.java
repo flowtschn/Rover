@@ -1,3 +1,4 @@
+import Exp.ExpFactory;
 import Sensors.SensorFactory;
 import Sensors.Temperature;
 
@@ -10,6 +11,7 @@ public static void main (String[] args){
             .addSensor(SensorFactory.Sensortype.HUM)
             .addSensor(SensorFactory.Sensortype.WIND)
             .addSensor(SensorFactory.Sensortype.RAD)
+            .addExperimentalSetup(ExpFactory.Exptype.MOXIE)
             .build();
     System.out.println(r);
 
