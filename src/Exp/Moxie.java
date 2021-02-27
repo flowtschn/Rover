@@ -23,7 +23,7 @@ public class Moxie implements ExperimentalSetup {
             int int_rand = rand.nextInt(upperbound);
             if (int_rand > 5) {
                 success++;
-                System.out.println("success="+success);
+                //System.out.println("success="+success);
             }
 
         }

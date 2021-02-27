@@ -25,7 +25,7 @@ public static void main (String[] args){
     r.disabled(SensorFactory.Sensortype.WIND);
 
     //Enable a Sensor:
-   r.enabled(SensorFactory.Sensortype.WIND);
+    r.enabled(SensorFactory.Sensortype.WIND);
 
 
     // RUN AN EXPERIMENT:

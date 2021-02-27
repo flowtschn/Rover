@@ -1,11 +1,15 @@
 package Sensors;
 
-public class Dust extends AbstractSensor{
-    public static double getData()
+import java.util.Random;
 
+public class Dust extends AbstractSensor{
+    private Double part ;
+    @Override
+    public  Double read()
     {
-        double Temp = 0;
-        //System.out.println("Dust is" +""+ Temp);
-        return Temp;
+        Random random = new Random();
+        part =Math.round((random.nextInt(100 )*-1) + random.nextDouble() * 100.0) / 100.0;
+        // System.out.println("it works"+Temp);
+        return part;
     }
 }
