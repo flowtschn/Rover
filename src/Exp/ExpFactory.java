@@ -1,6 +1,11 @@
 package Exp;
 
+import Sensors.SensorFactory;
+import Sensors.Wind;
+
 public class ExpFactory extends Moxie {
+
+
 
     public enum Exptype {
             MOXIE,
@@ -13,12 +18,22 @@ public class ExpFactory extends Moxie {
 
             case ROXY:
                 return new Roxy();
-
         }
-
-
         return null;
     }
 
+
+    public static double getExperimentData(Exptype exptype) {
+        double data = 0;
+        Wind w= new Wind();
+
+        if (exptype == Exptype.MOXIE) {
+            data = Moxie.readExpData();
+            System.out.println("CO2 conversion success rate: " + data ); }
+        else if (exptype == Exptype.ROXY) {
+            data = w.read();
+            System.out.println("Sensor WIND DATA = " + data); }
+            return data;
+        }
 
 }

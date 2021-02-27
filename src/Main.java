@@ -14,10 +14,25 @@ public static void main (String[] args){
             .addExperimentalSetup(ExpFactory.Exptype.ROXY)
             .build();
 
+    // READ DATA FROM SENSORS:
+    System.out.println("Current planetary temperature: "+
+            r.readSensorData(SensorFactory.Sensortype.TEMP)+"°C");
+    System.out.println("Current planetary windspeed: "+
+            r.readSensorData(SensorFactory.Sensortype.WIND)+"km/h");
+    // RUN AN EXPERIMENT:
+   r.runExperiment(ExpFactory.Exptype.MOXIE);
+
+
+
+
+
+
+
     //r.disabled();
-    r.enabled();
-    r.read();
-    r.readSensorData(SensorFactory.Sensortype.TEMP);
+
+    //r.read();
+
+    //Sensors.Temperature.getData();
   //System.out.println(r);
 
 

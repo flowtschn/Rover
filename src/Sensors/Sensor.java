@@ -4,7 +4,7 @@ public interface Sensor<T> {
 
 
 
-    T read();
+    public T read();
 
     public boolean enabled ();
 

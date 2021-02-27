@@ -14,19 +14,19 @@ public class SensorFactory extends AbstractSensor  {
     public static Sensor<?> createSensor(Sensortype TypeS) {
         switch (TypeS) {
             case TEMP:
-                System.out.println("Temp Sensors.Sensor created");
+                //System.out.println("Temp Sensor created");
                 return new Temperature();
             case PRE:
-                System.out.println("Pre Sensors.Sensor created");
+                //System.out.println("Pre Sensor created");
                 return new Pressure();
             case HUM:
-                System.out.println("Hum Sensors.Sensor created");
+                //System.out.println("Hum Sensor created");
                 return new Hum();
             case WIND:
-                System.out.println("Wind Sensors.Sensor created");
+                //System.out.println("Wind Sensor created");
                 return new Wind();
             case RAD:
-                System.out.println("Radiation Sensors.Sensor created");
+                //System.out.println("Radiation Sensor created");
                 return new Rad();
             default:
                 System.out.println("--");

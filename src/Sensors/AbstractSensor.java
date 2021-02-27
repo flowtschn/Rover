@@ -1,25 +1,24 @@
 package Sensors;
 
+import Exp.ExpFactory;
+import Exp.ExperimentalSetup;
+
 public abstract class AbstractSensor <T> implements Sensor<T> {
     private boolean status;
     private T content ;
 
 
 
-    @Override
-    public T  read() {
-        if (this.status == false) {
 
-            System.out.println("Sensors.Sensor ist nicht angeschalten!");
-        }
 
+    public  T  read() {
         return this.content;
     }
 
     @Override
     public boolean enabled() {
         status = true;
-        System.out.println("Sensors.Sensor ist angeschalten!");
+        System.out.println("Sensor ist angeschalten!");
         return status;
 
 
@@ -28,15 +27,13 @@ public abstract class AbstractSensor <T> implements Sensor<T> {
     @Override
     public boolean disabled() {
         status = false;
-        System.out.println("Sensors.Sensor ist deaktiviert!");
+        System.out.println("Sensor ist deaktiviert!");
         return status;
 
     }
 
-    public  int readSensorData(SensorFactory.Sensortype type) {
-        int i=0;
-
-        System.out.println("Sensor DATA = " );
-      return i;
+   public void runExperiment(ExpFactory.Exptype exptype) {
+        ExpFactory.getExperimentData(exptype);
     }
+
 }
