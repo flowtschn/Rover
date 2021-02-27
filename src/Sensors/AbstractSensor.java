@@ -2,6 +2,8 @@ package Sensors;
 
 import Exp.ExpFactory;
 import Exp.ExperimentalSetup;
+import Exp.Moxie;
+import Exp.Roxy;
 
 public abstract class AbstractSensor <T> implements Sensor<T> {
     private boolean status;
@@ -16,23 +18,58 @@ public abstract class AbstractSensor <T> implements Sensor<T> {
     }
 
     @Override
-    public boolean enabled() {
+    public boolean enabled(SensorFactory.Sensortype t) {
         status = true;
-        System.out.println("Sensor ist angeschalten!");
+        switch (t) {
+            case TEMP:
+                System.out.println("Temp Sensor  is activated!");
+                break;
+            case WIND:
+                System.out.println("Wind Sensor  is activated!");
+                break;
+            case PRE:
+                System.out.println("Pressure Sensor  is activated!");
+        break;}
         return status;
 
 
     }
 
     @Override
-    public boolean disabled() {
-        status = false;
-        System.out.println("Sensor ist deaktiviert!");
+    public boolean disabled(SensorFactory.Sensortype t) {
+        status = true;
+        switch (t) {
+            case TEMP:
+                System.out.println("Temp Sensor  is deactivated!");
+                break;
+            case HUM:
+                System.out.println("HUM Sensor  is deactivated!");
+                break;
+            case WIND:
+                System.out.println("Wind Sensor  is deactivated!");
+                break;
+            case PRE:
+                System.out.println("Pressure Sensor  is deactivated!");
+                break;
+            case RAD:
+                System.out.println("Pressure Sensor  is deactivated!");
+                break;
+        }
         return status;
 
     }
 
    public void runExperiment(ExpFactory.Exptype exptype) {
+       Moxie m = new Moxie();
+       Roxy r = new Roxy();
+       switch (exptype) {
+           case MOXIE:
+               m.runExperiment();
+           case ROXY:
+               r.runExperiment();}
+    }
+    public void evaluateExperiment(ExpFactory.Exptype exptype) {
+
         ExpFactory.getExperimentData(exptype);
     }
 

@@ -1,4 +1,5 @@
 import Exp.ExpFactory;
+import Exp.Moxie;
 import Sensors.*;
 
 class Main {
@@ -19,8 +20,22 @@ public static void main (String[] args){
             r.readSensorData(SensorFactory.Sensortype.TEMP)+"°C");
     System.out.println("Current planetary windspeed: "+
             r.readSensorData(SensorFactory.Sensortype.WIND)+"km/h");
+
+    //Disable a Sensor:
+    r.disabled(SensorFactory.Sensortype.WIND);
+
+    //Enable a Sensor:
+   r.enabled(SensorFactory.Sensortype.WIND);
+
+
     // RUN AN EXPERIMENT:
-   r.runExperiment(ExpFactory.Exptype.MOXIE);
+  // r.runExperiment(ExpFactory.Exptype.MOXIE);
+   // EVALUATE EXPERIMENT:
+    //System.out.println("CO2 conversion success rate: "
+       //     r.evaluateExperiment(Experiment.MOXIE));
+
+
+
 
 
 

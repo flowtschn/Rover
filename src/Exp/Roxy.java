@@ -5,7 +5,7 @@ public class Roxy extends Moxie {
 
     @Override
     public double runExperiment() {
-        return 0;
+        return 100;
     }
 
     @Override

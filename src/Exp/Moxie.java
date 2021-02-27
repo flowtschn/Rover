@@ -8,12 +8,14 @@ public class Moxie implements ExperimentalSetup {
 
     double counter = 10;
     int upperbound = 10;
-    static int success = 0;
+     int success ;
     double rate =0;
+    int expdata;
 
 
     @Override
     public double runExperiment() {
+        //success=0;
         while (counter >= 0) {
             this.counter = counter - 1;
             counter = this.counter;
@@ -34,8 +36,8 @@ public class Moxie implements ExperimentalSetup {
         this.rate = success/10;
         return this.rate;}
 
-public static int readExpData(){
-        return success;
+public  int readExpData(){
+        return expdata;
 }
 
 

@@ -12,6 +12,7 @@ public class Rover extends AbstractSensor {
     private HashMap<Integer, Sensor<?>> sensormap;
     private HashMap <Integer , Moxie> experimentmap ;
     private String name;
+    Temperature t = new Temperature();
 
     public static class RoverBuilder extends Rover  {
 
