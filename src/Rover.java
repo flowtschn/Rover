@@ -1,6 +1,7 @@
 import Exp.ExpFactory;
 import Exp.ExperimentalSetup;
 import Exp.Moxie;
+import Exp.Roxy;
 import Sensors.*;
 
 import java.util.HashMap;
@@ -71,6 +72,22 @@ public class Rover extends AbstractSensor {
                 Wind w = new Wind() ;
                 return w.read();}
         return Sensordata ;
+    }
+
+    public void runExperiment(ExpFactory.Exptype exptype) {
+        Moxie m = new Moxie();
+        Roxy r = new Roxy();
+        switch (exptype) {
+            case MOXIE:
+                m.runExperiment();
+            case ROXY:
+                r.runExperiment();}
+    }
+
+    public double evaluateExperiment(ExpFactory.Exptype exptype) {
+double eva =0;
+        ExpFactory.getExperimentData(exptype);
+        return eva;
     }
 
 

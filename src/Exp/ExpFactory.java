@@ -16,8 +16,6 @@ public class ExpFactory extends Moxie {
             case MOXIE:
                 return new Moxie();
 
-
-
             case ROXY:
                 return new Roxy();
         }

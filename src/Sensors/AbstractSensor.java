@@ -59,18 +59,7 @@ public abstract class AbstractSensor <T> implements Sensor<T> {
 
     }
 
-   public void runExperiment(ExpFactory.Exptype exptype) {
-       Moxie m = new Moxie();
-       Roxy r = new Roxy();
-       switch (exptype) {
-           case MOXIE:
-               m.runExperiment();
-           case ROXY:
-               r.runExperiment();}
-    }
-    public void evaluateExperiment(ExpFactory.Exptype exptype) {
 
-        ExpFactory.getExperimentData(exptype);
-    }
+
 
 }

@@ -29,10 +29,10 @@ public static void main (String[] args){
 
 
     // RUN AN EXPERIMENT:
-  // r.runExperiment(ExpFactory.Exptype.MOXIE);
+  r.runExperiment(ExpFactory.Exptype.MOXIE);
+
    // EVALUATE EXPERIMENT:
-    //System.out.println("CO2 conversion success rate: "
-       //     r.evaluateExperiment(Experiment.MOXIE));
+    r.evaluateExperiment(ExpFactory.Exptype.MOXIE);
 
 
 
