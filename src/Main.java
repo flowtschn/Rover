@@ -3,7 +3,7 @@ import Exp.Moxie;
 import Sensors.*;
 
 class Main {
-public static void main (String[] args){
+public static void main (String[] args) throws Exception {
     Rover r = new Rover.RoverBuilder()
             .addname("juhu")
             .addSensor(SensorFactory.Sensortype.PRE)
@@ -23,7 +23,7 @@ public static void main (String[] args){
 
     //Disable a Sensor:
     r.disabled(SensorFactory.Sensortype.WIND);
-
+    r.readSensorData(SensorFactory.Sensortype.WIND);
     //Enable a Sensor:
     r.enabled(SensorFactory.Sensortype.WIND);
 

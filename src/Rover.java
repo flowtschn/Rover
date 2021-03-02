@@ -62,7 +62,7 @@ public class Rover extends AbstractSensor {
 
 
     }
-    public double readSensorData(SensorFactory.Sensortype type) {
+    public double readSensorData(SensorFactory.Sensortype type) throws Exception {
         double Sensordata = 0;
         switch (type) {
             case TEMP:
@@ -75,19 +75,30 @@ public class Rover extends AbstractSensor {
     }
 
     public void runExperiment(ExpFactory.Exptype exptype) {
-        Moxie m = new Moxie();
-        Roxy r = new Roxy();
+
         switch (exptype) {
             case MOXIE:
-                m.runExperiment();
+                Moxie m = new Moxie();
+                m.Experiment();
             case ROXY:
-                r.runExperiment();}
+                Roxy r = new Roxy();
+                r.Experiment();}
     }
 
-    public double evaluateExperiment(ExpFactory.Exptype exptype) {
-double eva =0;
-        ExpFactory.getExperimentData(exptype);
-        return eva;
+    public void evaluateExperiment(ExpFactory.Exptype exptype) {
+        switch (exptype) {
+            case MOXIE:
+                Moxie m = new Moxie();
+                m.evaluateExperiment();
+                System.out.println("CO2 conversion success rate: " + m.evaluateExperiment());
+                break;
+            case ROXY:
+                Roxy r = new Roxy();
+                r.evaluateExperiment();
+                System.out.println("CO2 conversion success rate: " + r.evaluateExperiment());
+        }
+        //double eva =0;
+//        ExpFactory.getExperimentData(exptype);
     }
 
 

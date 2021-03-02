@@ -4,8 +4,8 @@ import Sensors.Sensor;
 
 public interface ExperimentalSetup {
 
-    public double runExperiment();
+    public double Experiment();
 
 
-    public double evaluateResult();
+    public double evaluateExperiment();
 }

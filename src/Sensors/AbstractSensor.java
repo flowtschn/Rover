@@ -13,8 +13,13 @@ public abstract class AbstractSensor <T> implements Sensor<T> {
 
 
 
-    public  T  read() {
-        return this.content;
+    public  T  read() throws Exception {
+        if (!status) {
+            return this.content;
+        }
+        throw new Exception("Sensor is not activated");
+
+
     }
 
     @Override
@@ -37,7 +42,7 @@ public abstract class AbstractSensor <T> implements Sensor<T> {
 
     @Override
     public boolean disabled(SensorFactory.Sensortype t) {
-        status = true;
+        status = false;
         switch (t) {
             case TEMP:
                 System.out.println("Temp Sensor  is deactivated!");
@@ -55,6 +60,7 @@ public abstract class AbstractSensor <T> implements Sensor<T> {
                 System.out.println("Pressure Sensor  is deactivated!");
                 break;
         }
+        System.out.println(status);
         return status;
 
     }

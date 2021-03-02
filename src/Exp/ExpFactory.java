@@ -23,20 +23,20 @@ public class ExpFactory extends Moxie {
     }
 
 
-    public static double getExperimentData(Exptype exptype) {
-        double data = 0;
-        Wind w= new Wind();
-        Moxie m= new Moxie();
-
-
-        if (exptype == Exptype.MOXIE) {
-            data= m.runExperiment();
-
-            System.out.println("CO2 conversion success rate: " + data ); }
-        else if (exptype == Exptype.ROXY) {
-            data = w.read();
-            System.out.println("Sensor WIND DATA = " + data); }
-            return data;
-        }
+//    public static double getExperimentData(Exptype exptype) {
+//        double data = 0;
+//        Wind w= new Wind();
+//        Moxie m= new Moxie();
+//
+//
+//        if (exptype == Exptype.MOXIE) {
+//            data= m.runExperiment();
+//
+//            System.out.println("CO2 conversion success rate: " + data ); }
+//        else if (exptype == Exptype.ROXY) {
+//            data = w.read();
+//            System.out.println("Sensor WIND DATA = " + data); }
+//            return data;
+//        }
 
 }

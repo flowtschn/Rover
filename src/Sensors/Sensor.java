@@ -4,7 +4,7 @@ public interface Sensor<T> {
 
 
 
-    public T read();
+    public T read() throws Exception;
 
     public boolean enabled (SensorFactory.Sensortype t);
 

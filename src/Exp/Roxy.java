@@ -4,12 +4,12 @@ public class Roxy extends Moxie {
 
 
     @Override
-    public double runExperiment() {
+    public double Experiment() {
         return 100;
     }
 
     @Override
-    public double evaluateResult() {
+    public double evaluateExperiment() {
         return 0;
     }
 }
