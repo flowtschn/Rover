@@ -25,8 +25,12 @@ public static void main (String[] args) throws Exception {
     r.disabled(SensorFactory.Sensortype.WIND);
     System.out.println("Current planetary windspeed: "+
             r.readSensorData(SensorFactory.Sensortype.WIND)+"km/h");
+    System.out.println("Current planetary TEMP: "+
+            r.readSensorData(SensorFactory.Sensortype.TEMP)+"km/h");
     //Enable a Sensor:
     r.enabled(SensorFactory.Sensortype.WIND);
+    System.out.println("Current planetary windspeed: "+
+            r.readSensorData(SensorFactory.Sensortype.WIND)+"km/h");
 
 
     // RUN AN EXPERIMENT:

@@ -8,6 +8,7 @@ public class Temperature extends AbstractSensor<Double> {
 @Override
     public  Double read() throws Exception
     {
+        super.read();
         Random random = new Random();
         Temp =Math.round((random.nextInt(100 )*-1) + random.nextDouble() * 100.0) / 100.0;
        // System.out.println("it works"+Temp);

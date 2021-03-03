@@ -10,20 +10,19 @@ public class Rover extends AbstractSensor {
 
 
 
-    private HashMap<Integer, Sensor<?>> sensormap;
-    private HashMap <Integer , Moxie> experimentmap ;
+    public static HashMap<Enum, Sensor<?>> sensormap;
+    public HashMap <Enum , Moxie> experimentmap ;
     private String name;
-    Temperature t = new Temperature();
-    Moxie m = new Moxie();
-    Roxy r = new Roxy();
+
+
 
     public static class RoverBuilder extends Rover  {
 
 //        private  SensorFactory sensor;
         private int IndexS = 0;
         private int IndexE = 0;
-        private HashMap <Integer , Sensor<?>>sensormap = new HashMap<>();
-        private HashMap <Integer , Moxie> experimentmap = new HashMap<>();
+        private HashMap <Enum , Sensor<?>>sensormap = new HashMap<>();
+        private HashMap <Enum , Moxie> experimentmap = new HashMap<>();
         private String name;
 
 
@@ -32,8 +31,7 @@ public class Rover extends AbstractSensor {
 
         public RoverBuilder addSensor(SensorFactory.Sensortype type) {
 
-            this.sensormap.put(IndexS, SensorFactory.createSensor(type));
-            IndexS = IndexS+1;
+            this.sensormap.put(type, SensorFactory.createSensor(type));
             System.out.println("Added - "+ type + " - Sensor" );
             return  this;
         }
@@ -45,10 +43,8 @@ public class Rover extends AbstractSensor {
         }
 
         public RoverBuilder addExperimentalSetup(ExpFactory.Exptype temp) {
-            this.experimentmap.put(IndexE, ExpFactory.createExp(temp));
-            //System.out.println(experimentmap);
-            IndexE = IndexE+1;
-       return this ; }
+            this.experimentmap.put(temp, ExpFactory.createExp(temp));
+            return this ; }
 
 
 
@@ -64,40 +60,26 @@ public class Rover extends AbstractSensor {
 
 
     }
-    public double readSensorData(SensorFactory.Sensortype type) throws Exception {
-        double Sensordata = 0;
-        switch (type) {
-            case TEMP:
-                Temperature t = new Temperature() ;
-                return t.read();
-            case WIND:
-                Wind w = new Wind() ;
-                return w.read();}
-        return Sensordata ;
+    public String readSensorData(SensorFactory.Sensortype type) throws Exception {
+        try {
+            String Sensordata = sensormap.get(type).read().toString();
+            return Sensordata ;
+
+        }
+        catch(Exception e) {
+            String Sensorerror="<<<---!!Sensors not activated!!-->>>";
+            return Sensorerror;
+        }
+
     }
 
     public void runExperiment(ExpFactory.Exptype exptype) {
-
-        switch (exptype) {
-            case MOXIE:
-
-                m.Experiment();
-            case ROXY:
-                Roxy r = new Roxy();
-                r.Experiment();}
+        experimentmap.get(exptype).Experiment();
     }
 
     public void evaluateExperiment(ExpFactory.Exptype exptype) {
-        switch (exptype) {
-            case MOXIE:
+                System.out.println("CO2 conversion success rate: " + experimentmap.get(exptype).evaluate());
 
-                //m.evaluate();
-                System.out.println("CO2 conversion success rate: " + m.evaluate());
-                break;
-            case ROXY:
-
-                System.out.println("CO2 conversion success rate: " + r.evaluate());
-        }
         //double eva =0;
 //        ExpFactory.getExperimentData(exptype);
     }

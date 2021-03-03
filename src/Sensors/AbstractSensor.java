@@ -6,7 +6,7 @@ import Exp.Moxie;
 import Exp.Roxy;
 
 public abstract class AbstractSensor <T> implements Sensor<T> {
-    private boolean status;
+    static boolean status=true;
     private T content ;
 
 
@@ -17,27 +17,29 @@ public abstract class AbstractSensor <T> implements Sensor<T> {
         if (status) {
             return this.content;
         }
-        throw new Exception("Sensor is not activated");
+
+        throw new Exception();
 
 
     }
 
     @Override
     public boolean enabled(SensorFactory.Sensortype t) {
-
+       //ourrover.sensormap.get(t).read();
         switch (t) {
             case TEMP:
-                status = true;
+                Temperature.status = true;
                 System.out.println("Temp Sensor  is activated!");
                 break;
             case WIND:
-                status = true;
+                Wind.status = true;
                 System.out.println("Wind Sensor  is activated!");
                 break;
             case PRE:
-                status = true;
+                Pressure.status = true;
                 System.out.println("Pressure Sensor  is activated!");
         break;}
+       System.out.println("STATUS ="+ status);
         return status;
 
 
@@ -45,15 +47,17 @@ public abstract class AbstractSensor <T> implements Sensor<T> {
 
     @Override
     public boolean disabled(SensorFactory.Sensortype t) {
-        status = false;
         switch (t) {
             case TEMP:
+                Temperature.status = false;
                 System.out.println("Temp Sensor  is deactivated!");
                 break;
             case HUM:
+                Hum.status = false;
                 System.out.println("HUM Sensor  is deactivated!");
                 break;
             case WIND:
+                Wind.status = false;
                 System.out.println("Wind Sensor  is deactivated!");
                 break;
             case PRE:
@@ -63,7 +67,7 @@ public abstract class AbstractSensor <T> implements Sensor<T> {
                 System.out.println("Pressure Sensor  is deactivated!");
                 break;
         }
-        System.out.println("STATUS ="+ status);
+        System.out.println("STATUS ="+ Wind.status + Temperature.status);
         return status;
 
     }
