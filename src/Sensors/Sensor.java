@@ -6,9 +6,9 @@ public interface Sensor<T> {
 
     public T read() throws Exception;
 
-    public boolean enabled (SensorFactory.Sensortype t);
+    public boolean enabled ();
 
-    public boolean disabled(SensorFactory.Sensortype t);
+    public boolean disabled();
 
 
 }

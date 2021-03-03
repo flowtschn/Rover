@@ -22,15 +22,17 @@ public static void main (String[] args) throws Exception {
             r.readSensorData(SensorFactory.Sensortype.WIND)+"km/h");
 
     //Disable a Sensor:
-    r.disabled(SensorFactory.Sensortype.WIND);
+    //r.disabled(SensorFactory.Sensortype.WIND);
     System.out.println("Current planetary windspeed: "+
             r.readSensorData(SensorFactory.Sensortype.WIND)+"km/h");
+
+    //Enable a Sensor:
+    r.senoroff(SensorFactory.Sensortype.TEMP);
     System.out.println("Current planetary TEMP: "+
             r.readSensorData(SensorFactory.Sensortype.TEMP)+"km/h");
-    //Enable a Sensor:
-    r.enabled(SensorFactory.Sensortype.WIND);
-    System.out.println("Current planetary windspeed: "+
-            r.readSensorData(SensorFactory.Sensortype.WIND)+"km/h");
+    r.sensoron(SensorFactory.Sensortype.TEMP);
+    System.out.println("Current planetary TEMP: "+
+            r.readSensorData(SensorFactory.Sensortype.TEMP)+"km/h");
 
 
     // RUN AN EXPERIMENT:

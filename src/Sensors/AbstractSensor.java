@@ -5,10 +5,11 @@ import Exp.ExperimentalSetup;
 import Exp.Moxie;
 import Exp.Roxy;
 
-public abstract class AbstractSensor <T> implements Sensor<T> {
-    static boolean status=true;
-    private T content ;
+import java.util.HashMap;
 
+public abstract class AbstractSensor <T> implements Sensor<T> {
+    private boolean status=true;
+    private T content ;
 
 
 
@@ -24,52 +25,16 @@ public abstract class AbstractSensor <T> implements Sensor<T> {
     }
 
     @Override
-    public boolean enabled(SensorFactory.Sensortype t) {
-       //ourrover.sensormap.get(t).read();
-        switch (t) {
-            case TEMP:
-                Temperature.status = true;
-                System.out.println("Temp Sensor  is activated!");
-                break;
-            case WIND:
-                Wind.status = true;
-                System.out.println("Wind Sensor  is activated!");
-                break;
-            case PRE:
-                Pressure.status = true;
-                System.out.println("Pressure Sensor  is activated!");
-        break;}
-       System.out.println("STATUS ="+ status);
+    public boolean enabled() {
+        status=true;
         return status;
-
-
     }
 
     @Override
-    public boolean disabled(SensorFactory.Sensortype t) {
-        switch (t) {
-            case TEMP:
-                Temperature.status = false;
-                System.out.println("Temp Sensor  is deactivated!");
-                break;
-            case HUM:
-                Hum.status = false;
-                System.out.println("HUM Sensor  is deactivated!");
-                break;
-            case WIND:
-                Wind.status = false;
-                System.out.println("Wind Sensor  is deactivated!");
-                break;
-            case PRE:
-                System.out.println("Pressure Sensor  is deactivated!");
-                break;
-            case RAD:
-                System.out.println("Pressure Sensor  is deactivated!");
-                break;
-        }
-        System.out.println("STATUS ="+ Wind.status + Temperature.status);
+    public boolean disabled() {
+        status=false;
+        //System.out.println("STATUS ="+ this.status );
         return status;
-
     }
 
 

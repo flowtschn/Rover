@@ -79,11 +79,13 @@ public class Rover extends AbstractSensor {
 
     public void evaluateExperiment(ExpFactory.Exptype exptype) {
                 System.out.println("CO2 conversion success rate: " + experimentmap.get(exptype).evaluate());
-
-        //double eva =0;
-//        ExpFactory.getExperimentData(exptype);
     }
-
+public  void sensoron (SensorFactory.Sensortype type){
+         sensormap.get(type).enabled();
+    }
+public void senoroff (SensorFactory.Sensortype type){
+    sensormap.get(type).disabled();
+}
 
     }
 
