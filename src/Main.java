@@ -23,7 +23,8 @@ public static void main (String[] args) throws Exception {
 
     //Disable a Sensor:
     r.disabled(SensorFactory.Sensortype.WIND);
-    r.readSensorData(SensorFactory.Sensortype.WIND);
+    System.out.println("Current planetary windspeed: "+
+            r.readSensorData(SensorFactory.Sensortype.WIND)+"km/h");
     //Enable a Sensor:
     r.enabled(SensorFactory.Sensortype.WIND);
 

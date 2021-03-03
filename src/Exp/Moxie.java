@@ -8,9 +8,9 @@ public class Moxie implements ExperimentalSetup {
 
     double counter = 10;
     int upperbound = 10;
-    double success ;
+     double success ;
     double rate;
-    int expdata;
+    double expdata;
 
 
     @Override
@@ -25,6 +25,8 @@ public class Moxie implements ExperimentalSetup {
 //            System.out.println("rand="+int_rand);
             if (int_rand > 5) {
                 success++;
+
+
 //                System.out.println("success="+success);
             }
 
@@ -35,9 +37,10 @@ public class Moxie implements ExperimentalSetup {
     }
 
     @Override
-     public double evaluateExperiment() {
+     public double evaluate() {
 
-        this.rate = Experiment()/10;
+        //System.out.println(" "+success);
+        this.rate = success/10;
         return this.rate;}
 
 //public  int readExpData(){

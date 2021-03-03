@@ -7,5 +7,5 @@ public interface ExperimentalSetup {
     public double Experiment();
 
 
-    public double evaluateExperiment();
+    public double evaluate();
 }

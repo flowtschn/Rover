@@ -9,7 +9,7 @@ public class Roxy extends Moxie {
     }
 
     @Override
-    public double evaluateExperiment() {
+    public double evaluate() {
         return 0;
     }
 }

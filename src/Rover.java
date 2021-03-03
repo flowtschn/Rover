@@ -14,6 +14,8 @@ public class Rover extends AbstractSensor {
     private HashMap <Integer , Moxie> experimentmap ;
     private String name;
     Temperature t = new Temperature();
+    Moxie m = new Moxie();
+    Roxy r = new Roxy();
 
     public static class RoverBuilder extends Rover  {
 
@@ -78,7 +80,7 @@ public class Rover extends AbstractSensor {
 
         switch (exptype) {
             case MOXIE:
-                Moxie m = new Moxie();
+
                 m.Experiment();
             case ROXY:
                 Roxy r = new Roxy();
@@ -88,14 +90,13 @@ public class Rover extends AbstractSensor {
     public void evaluateExperiment(ExpFactory.Exptype exptype) {
         switch (exptype) {
             case MOXIE:
-                Moxie m = new Moxie();
-                m.evaluateExperiment();
-                System.out.println("CO2 conversion success rate: " + m.evaluateExperiment());
+
+                //m.evaluate();
+                System.out.println("CO2 conversion success rate: " + m.evaluate());
                 break;
             case ROXY:
-                Roxy r = new Roxy();
-                r.evaluateExperiment();
-                System.out.println("CO2 conversion success rate: " + r.evaluateExperiment());
+
+                System.out.println("CO2 conversion success rate: " + r.evaluate());
         }
         //double eva =0;
 //        ExpFactory.getExperimentData(exptype);
