@@ -1,12 +1,5 @@
 package Sensors;
 
-import Exp.ExpFactory;
-import Exp.ExperimentalSetup;
-import Exp.Moxie;
-import Exp.Roxy;
-
-import java.util.HashMap;
-
 public abstract class AbstractSensor <T> implements Sensor<T> {
     private boolean status=true;
     private T content ;

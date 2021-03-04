@@ -1,8 +1,10 @@
 import Exp.ExpFactory;
-import Exp.ExperimentalSetup;
 import Exp.Moxie;
-import Exp.Roxy;
 import Sensors.*;
+import Steering.DifferentialSteering;
+import Steering.Steering;
+import Steering.Vector;
+import Steering.*;
 
 import java.util.HashMap;
 
@@ -11,6 +13,7 @@ public class Rover extends AbstractSensor {
 
 
     public static HashMap<Enum, Sensor<?>> sensormap;
+    public static HashMap<Enum, Steering<?>> steeringmap;
     public HashMap <Enum , Moxie> experimentmap ;
     private String name;
 
@@ -23,6 +26,7 @@ public class Rover extends AbstractSensor {
         private int IndexE = 0;
         private HashMap <Enum , Sensor<?>>sensormap = new HashMap<>();
         private HashMap <Enum , Moxie> experimentmap = new HashMap<>();
+        private HashMap<Enum, Steering<?>> steeringmap =new HashMap<>();
         private String name;
 
 
@@ -44,7 +48,11 @@ public class Rover extends AbstractSensor {
 
         public RoverBuilder addExperimentalSetup(ExpFactory.Exptype temp) {
             this.experimentmap.put(temp, ExpFactory.createExp(temp));
-            return this ; }
+            return this; }
+
+        public RoverBuilder setSteering(SteeeringFactory.SteeringType t) {
+            this.steeringmap.put(t, SteeeringFactory.createSteering(t));
+            return this; }
 
 
 
@@ -53,6 +61,7 @@ public class Rover extends AbstractSensor {
             ourrover.name = this.name;
             ourrover.sensormap = this.sensormap;
             ourrover.experimentmap = this.experimentmap;
+            ourrover.steeringmap = this.steeringmap;
             System.out.println("Name of the Rover ->"+" "+ourrover.name); //check if right name is attached
             return ourrover;
 
@@ -76,7 +85,7 @@ public class Rover extends AbstractSensor {
     }
 
     public void evaluateExperiment(ExpFactory.Exptype exptype) {
-                System.out.println("CO2 conversion success rate: " + experimentmap.get(exptype).evaluate());
+                System.out.println("Experiment "+ exptype+ " success rate: " + experimentmap.get(exptype).evaluate());
     }
 public  void sensoron (SensorFactory.Sensortype type){
          sensormap.get(type).enabled();
@@ -84,7 +93,10 @@ public  void sensoron (SensorFactory.Sensortype type){
 public void senoroff (SensorFactory.Sensortype type){
     sensormap.get(type).disabled();
 }
-
+public Object move(Vector v) {
+        DifferentialSteering x = new DifferentialSteering();
+        return x.driveTo(v);
+    }
     }
 
 

@@ -8,16 +8,15 @@ public class Moxie implements ExperimentalSetup {
 
     double counter = 10;
     int upperbound = 10;
-     double success ;
+    double success;
     double rate;
-    double expdata;
 
 
     @Override
     public double Experiment() {
         //success=0;
         while (counter > 0) {
-            this.counter = counter-1;
+            this.counter = counter - 1;
             counter = this.counter;
 //            System.out.println("counter="+counter);
             Random rand = new Random();
@@ -37,16 +36,16 @@ public class Moxie implements ExperimentalSetup {
     }
 
     @Override
-     public double evaluate() {
+    public double evaluate() {
 
         //System.out.println(" "+success);
-        this.rate = success/10;
-        return this.rate;}
+        this.rate = success / 10;
+        return this.rate;
+    }
 
 //public  int readExpData(){
 //        return expdata;
 //}
-
 
 
 }

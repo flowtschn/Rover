@@ -1,6 +1,8 @@
 import Exp.ExpFactory;
 import Exp.Moxie;
 import Sensors.*;
+import Steering.SteeeringFactory;
+import Steering.Vector;
 
 class Main {
 public static void main (String[] args) throws Exception {
@@ -13,7 +15,8 @@ public static void main (String[] args) throws Exception {
             .addSensor(SensorFactory.Sensortype.RAD)
             .addSensor(SensorFactory.Sensortype.DUST)
             .addExperimentalSetup(ExpFactory.Exptype.MOXIE)
-            .addExperimentalSetup(ExpFactory.Exptype.ROXY)
+            .addExperimentalSetup(ExpFactory.Exptype.WATER)
+            .setSteering(SteeeringFactory.SteeringType.DIFF)
             .build();
 
     // READ DATA FROM SENSORS:
@@ -42,41 +45,13 @@ public static void main (String[] args) throws Exception {
 
     // RUN AN EXPERIMENT:
   r.runExperiment(ExpFactory.Exptype.MOXIE);
+  r.runExperiment(ExpFactory.Exptype.WATER);
 
    // EVALUATE EXPERIMENT:
     r.evaluateExperiment(ExpFactory.Exptype.MOXIE);
+    r.evaluateExperiment(ExpFactory.Exptype.WATER);
 
-
-
-
-
-
-
-
-
-
-    //r.disabled();
-
-    //r.read();
-
-    //Sensors.Temperature.getData();
-  //System.out.println(r);
-
-
-//    .createSensor(Rover.RoverBuilder.Sensortype.TEMP)
-//    .createSensor(Rover.RoverBuilder.Sensortype.DUST)
-//    .createSensor(Rover.RoverBuilder.Sensortype.WIND);
-
-   // r.read();
-
-
-
-
-    //Sensors.SensorFactory T = new Sensors.SensorFactory();
-    //T.read(true);
-   // T.enabled(false);
-    // Sensoren erzeugen
-   // T.createSensor(Sensors.SensorFactory.Sensortype.TEMP);
+    System.out.println("ML,MR: " +    r.move(new Vector(0,10)));
 
     }
 }
