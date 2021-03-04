@@ -8,7 +8,8 @@ public class SensorFactory extends AbstractSensor  {
         PRE,
         HUM,
         WIND,
-        RAD
+        RAD,
+        DUST
     }
 
     public static Sensor<?> createSensor(Sensortype TypeS) {
@@ -28,6 +29,9 @@ public class SensorFactory extends AbstractSensor  {
             case RAD:
                 //System.out.println("Radiation Sensor created");
                 return new Rad();
+            case DUST:
+                //System.out.println("Radiation Sensor created");
+                return new Dust();
             default:
                 System.out.println("--");
         }

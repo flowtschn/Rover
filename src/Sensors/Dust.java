@@ -1,15 +1,25 @@
 package Sensors;
 
+import Exp.Moxie;
+
+import java.util.HashMap;
 import java.util.Random;
 
 public class Dust extends AbstractSensor{
-    private Double part ;
+    private String arr [] = {"spherical","prismatic","bladelike"};
+    private String shape;
+    private Double partsize ;
+    private Pair<String , Double> p = new Pair<>(shape, partsize);
     @Override
-    public  Double read()
+    public  Pair<?,?> read()
     {
         Random random = new Random();
-        part =Math.round((random.nextInt(100 )*-1) + random.nextDouble() * 100.0) / 100.0;
-        // System.out.println("it works"+Temp);
-        return part;
+        int rnd = new Random().nextInt(arr.length);
+        shape = arr[rnd];
+        partsize = Math.round((random.nextInt(10 )) + random.nextDouble() * 100.0) / 100.0;
+        p =new Pair(shape,partsize);
+
+        return  p ;
     }
+
 }

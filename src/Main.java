@@ -11,6 +11,7 @@ public static void main (String[] args) throws Exception {
             .addSensor(SensorFactory.Sensortype.HUM)
             .addSensor(SensorFactory.Sensortype.WIND)
             .addSensor(SensorFactory.Sensortype.RAD)
+            .addSensor(SensorFactory.Sensortype.DUST)
             .addExperimentalSetup(ExpFactory.Exptype.MOXIE)
             .addExperimentalSetup(ExpFactory.Exptype.ROXY)
             .build();
@@ -20,6 +21,9 @@ public static void main (String[] args) throws Exception {
             r.readSensorData(SensorFactory.Sensortype.TEMP)+"°C");
     System.out.println("Current planetary windspeed: "+
             r.readSensorData(SensorFactory.Sensortype.WIND)+"km/h");
+    System.out.println("Current planetary Data From Dust Sensor [shape,diameter]: "+
+            r.readSensorData(SensorFactory.Sensortype.DUST)+ " μm");
+
 
     //Disable a Sensor:
     //r.disabled(SensorFactory.Sensortype.WIND);
@@ -33,6 +37,7 @@ public static void main (String[] args) throws Exception {
     r.sensoron(SensorFactory.Sensortype.TEMP);
     System.out.println("Current planetary TEMP: "+
             r.readSensorData(SensorFactory.Sensortype.TEMP)+"km/h");
+
 
 
     // RUN AN EXPERIMENT:

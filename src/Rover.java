@@ -60,11 +60,9 @@ public class Rover extends AbstractSensor {
 
 
     }
-    public String readSensorData(SensorFactory.Sensortype type) throws Exception {
+    public Object readSensorData(SensorFactory.Sensortype type) throws Exception {
         try {
-            String Sensordata = sensormap.get(type).read().toString();
-            return Sensordata ;
-
+            return sensormap.get(type).read() ;
         }
         catch(Exception e) {
             String Sensorerror="<<<---!!Sensors not activated!!-->>>";
